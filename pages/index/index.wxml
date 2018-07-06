@@ -1,0 +1,6 @@
+<button bindtap="init">刷新</button>
+<button bindtap="getBLEDevices">获取发现的所有蓝牙设备</button>
+<button bindtap="conn">连接蓝牙</button>
+<button bindtap="getService">获取服务</button>
+<button bindtap="getC">获取特征值</button>
+<button bindtap="go">发送指令</button>
