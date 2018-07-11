@@ -1,6 +1,9 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/index/index",
+    "pages/connect/connect",
+    "pages/parameter/parameter",
+    "pages/about/about"
   ],
   "window": {
     "backgroundTextStyle": "light",

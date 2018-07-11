@@ -314,7 +314,7 @@ interface ICanvasContext {
     /**
      * 进行绘图
      */
-    draw(reserve: boolean, callback: Function): void;
+    draw(reserve?: boolean, callback?: Function): void;
 }
 
 interface IAudioContext {

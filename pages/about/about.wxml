@@ -1,0 +1,4 @@
+<view class="about">
+    <view>Version Number</view>
+    <view>{{about}}</view>
+</view>

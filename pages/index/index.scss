@@ -1,0 +1,39 @@
+@import "../../common";
+
+page {
+  background: linear-gradient(
+                  #14529e,
+                  #295fb3,
+                  #406fcb,
+                  #517fdc,
+                  #578de3,
+                  #4ea3dc,
+                  #3ab8cc,
+                  #2ac6be
+  );
+}
+
+.list {
+  margin-top: 5%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  .item {
+    margin: rpx(30);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.5;
+
+    color: #fff;
+    width: rpx(280);
+    height: rpx(300);
+    font-size: rpx(32);
+    border-radius: rpx(10);
+    background-color: rgba(#1ea6eb, .5);
+    .icon {
+      font-size: rpx(80);
+    }
+  }
+}

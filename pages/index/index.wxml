@@ -1,6 +1,26 @@
-<button bindtap="init">刷新</button>
-<button bindtap="getBLEDevices">获取发现的所有蓝牙设备</button>
-<button bindtap="conn">连接蓝牙</button>
-<button bindtap="getService">获取服务</button>
-<button bindtap="getC">获取特征值</button>
-<button bindtap="go">发送指令</button>
+<view class="list">
+    <view class="item" hover-class="navigator-hover">
+        <view class="icon icon-dc"></view>
+        <view>Smart Battery</view>
+    </view>
+    <view class="item" hover-class="navigator-hover">
+        <view class="icon icon-gongge"></view>
+        <view>Cell Status</view>
+    </view>
+    <view class="item" hover-class="navigator-hover" bindtap="parameter">
+        <view class="icon icon-aixin"></view>
+        <view>Parameter View</view>
+    </view>
+    <view class="item" hover-class="navigator-hover">
+        <view class="icon icon-settings"></view>
+        <view>Setting</view>
+    </view>
+    <navigator url="/pages/connect/connect" class="item">
+        <view class="icon icon-lanya"></view>
+        <view>Bluetooth Connect</view>
+    </navigator>
+    <view class="item" hover-class="navigator-hover" bindtap="about">
+        <view class="icon icon-about"></view>
+        <view>About</view>
+    </view>
+</view>

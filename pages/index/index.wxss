@@ -1,20 +1,23 @@
-/* pages/index/index.wxss */
-.content {
-  margin: 0 10px;
-}
+page {
+  background: linear-gradient(#14529e, #295fb3, #406fcb, #517fdc, #578de3, #4ea3dc, #3ab8cc, #2ac6be); }
 
-.status, .sousuo, .msg, .msg1 {
-  display: block;
-  line-height: 35px;
-  margin: 0 10px;
-}
-
-.button {
-  margin: 10px;
-}
-
-.sendto {
-  line-height: 30px;
-  display: block;
-  margin: 10px;
-}
+.list {
+  margin-top: 5%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; }
+  .list .item {
+    margin: 30rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.5;
+    color: #fff;
+    width: 280rpx;
+    height: 300rpx;
+    font-size: 32rpx;
+    border-radius: 10rpx;
+    background-color: rgba(30, 166, 235, 0.5); }
+    .list .item .icon {
+      font-size: 80rpx; }

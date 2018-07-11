@@ -1,0 +1,32 @@
+@function rpx($px:0) {
+  @return $px*1rpx;
+}
+
+$color: #00af66;
+
+@mixin ell() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin border($last:true,$direction:bottom,$color:#e0e0e0) {
+  $last: if($last, null, ':not(:last-child)');
+  $direction: if($direction, -$direction, null);
+  &#{$last} {
+    position: relative;
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 200%;
+      border#{$direction}: 1px solid $color;
+      box-sizing: border-box;
+      transform: scale(.5);
+      transform-origin: 0 0;
+      pointer-events: none;
+    }
+  }
+}

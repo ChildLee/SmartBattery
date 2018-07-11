@@ -1,0 +1,51 @@
+page {
+  background: linear-gradient(#14529e, #295fb3, #406fcb, #517fdc, #578de3, #4ea3dc, #3ab8cc, #2ac6be); }
+
+.conn-box {
+  padding: 0 30rpx; }
+  .conn-box .conn {
+    height: 100rpx;
+    color: #fff; }
+    .conn-box .conn {
+      position: relative; }
+      .conn-box .conn:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 200%;
+        height: 200%;
+        border-bottom: 1px solid #4D8FEA;
+        box-sizing: border-box;
+        transform: scale(0.5);
+        transform-origin: 0 0;
+        pointer-events: none; }
+  .conn-box .conn-title {
+    line-height: 100rpx; }
+  .conn-box .conn-list {
+    height: 130rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; }
+    .conn-box .conn-list .icon {
+      padding: 0 20rpx; }
+    .conn-box .conn-list .conn-item {
+      flex: 1;
+      display: flex;
+      flex-direction: column; }
+
+.conn-btn {
+  margin-top: 30rpx;
+  color: #fff;
+  width: 200rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  background-color: #99cc00;
+  border-radius: 20rpx; }
+
+.footer {
+  font-size: 28rpx;
+  margin-top: 30rpx;
+  color: #fff;
+  padding: 30rpx; }

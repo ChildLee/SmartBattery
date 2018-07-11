@@ -34,7 +34,26 @@
 		},
 		"miniprogram": {
 			"current": -1,
-			"list": []
+			"list": [
+				{
+					"id": -1,
+					"name": "蓝牙连接",
+					"pathName": "pages/connect/connect",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "about",
+					"pathName": "pages/about/about",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "parameter",
+					"pathName": "pages/parameter/parameter",
+					"query": ""
+				}
+			]
 		}
 	}
 }

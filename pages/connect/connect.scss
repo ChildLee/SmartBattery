@@ -1,0 +1,58 @@
+@import "../../common";
+
+page {
+  background: linear-gradient(
+                  #14529e,
+                  #295fb3,
+                  #406fcb,
+                  #517fdc,
+                  #578de3,
+                  #4ea3dc,
+                  #3ab8cc,
+                  #2ac6be
+  );
+}
+
+.conn-box {
+  padding: 0 rpx(30);
+  .conn {
+    height: rpx(100);
+    color: #fff;
+    @include border(true, bottom, #4D8FEA)
+  }
+  .conn-title {
+    line-height: rpx(100);
+  }
+  .conn-list {
+    height: rpx(130);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .icon {
+      padding: 0 rpx(20);
+    }
+    .conn-item {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
+
+.conn-btn {
+  margin-top: rpx(30);
+  color: #fff;
+  width: rpx(200);
+  height: rpx(100);
+  line-height: rpx(100);
+  text-align: center;
+  background-color: #99cc00;
+  border-radius: rpx(20);
+}
+
+.footer {
+  font-size: rpx(28);
+  margin-top: rpx(30);
+  color: #fff;
+  padding: rpx(30);
+}

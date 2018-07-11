@@ -1,0 +1,66 @@
+<view class="list">
+    <view class="item">
+        <view>Cell Over Voltage</view>
+        <view>4.2V</view>
+    </view>
+    <view class="item">
+        <view>Cell Over Voltage Release</view>
+        <view>4.0V</view>
+    </view>
+    <view class="item">
+        <view>Cell Under Voltage</view>
+        <view>2.5V</view>
+    </view>
+    <view class="item">
+        <view>Cell Under Voltage Release</view>
+        <view>3.0V</view>
+    </view>
+    <view class="item">
+        <view>Battery Pack Over Voltage</view>
+        <view>15.5V</view>
+    </view>
+    <view class="item">
+        <view>Battery Pack Under Voltage</view>
+        <view>8.4V</view>
+    </view>
+    <view class="item">
+        <view>Charge High Temp</view>
+        <view>60.0℃</view>
+    </view>
+    <view class="item">
+        <view>Discharge High Temp</view>
+        <view>50.0℃</view>
+    </view>
+    <view class="item">
+        <view>Charge Over Current</view>
+        <view>30.0A</view>
+    </view>
+    <view class="item">
+        <view>Discharge Over Current</view>
+        <view>35.0A</view>
+    </view>
+    <view class="item">
+        <view>Hardware Over Current</view>
+        <view>100.0A</view>
+    </view>
+    <view class="item">
+        <view>Hardware Over Current Delay</view>
+        <view>100ms</view>
+    </view>
+    <view class="item">
+        <view>Hardware Short Circuit</view>
+        <view>200.0A</view>
+    </view>
+    <view class="item">
+        <view>Hardware Short Circuit Delay</view>
+        <view>500us</view>
+    </view>
+    <view class="item">
+        <view>Balanced Open Voltage</view>
+        <view>4.18V</view>
+    </view>
+    <view class="item">
+        <view>Serial Number</view>
+        <view>1</view>
+    </view>
+</view>

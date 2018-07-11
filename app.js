@@ -1,6 +1,8 @@
 App({
 
-    data: {},
+    data: {
+        hex: ''
+    },
 
     onLaunch: function () {
 

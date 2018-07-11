@@ -1,0 +1,37 @@
+<block wx:if="{{deviceId}}">
+    <view class="conn-box">
+        <view class="conn conn-title">
+            Connected Device
+        </view>
+        <view class="conn conn-list">
+            <view class="conn-item">
+                <text>{{name}}</text>
+                <text>{{deviceId}}</text>
+            </view>
+        </view>
+    </view>
+</block>
+
+<view class="conn-box">
+    <view class="conn conn-title">
+        Connectable Devices
+    </view>
+    <scroll-view scroll-y class="scroll">
+        <block wx:for="{{devices}}" wx:key="{{index}}">
+            <view hover-class="navigator-hover" class="conn conn-list" data-device="{{item}}" bindtap="conn">
+                <view class="icon i-ble"></view>
+                <view class="conn-item">
+                    <text>{{item.name}}</text>
+                    <text>{{item.deviceId}}</text>
+                </view>
+                <view class="icon i-conn"></view>
+            </view>
+        </block>
+    </scroll-view>
+</view>
+
+<button class="conn-btn" bindtap="refresh">Refresh</button>
+
+<view class="footer">
+    <text>Tip:When Bluetooth can not be found near multiple Bluetooth refresh,please re-open Bluetooth Repair</text>
+</view>

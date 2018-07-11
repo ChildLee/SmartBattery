@@ -1,0 +1,25 @@
+page {
+  background-color: #406fcb; }
+
+.list {
+  padding: 0 30rpx; }
+  .list .item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+    height: 120rpx; }
+    .list .item {
+      position: relative; }
+      .list .item:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 200%;
+        height: 200%;
+        border-bottom: 1px solid #e0e0e0;
+        box-sizing: border-box;
+        transform: scale(0.5);
+        transform-origin: 0 0;
+        pointer-events: none; }

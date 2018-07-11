@@ -1,0 +1,17 @@
+@import "../../common";
+
+page {
+  background-color: #406fcb
+}
+
+.list {
+  padding: 0 rpx(30);
+  .item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+    height: rpx(120);
+    @include border()
+  }
+}
