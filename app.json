@@ -3,7 +3,10 @@
     "pages/index/index",
     "pages/connect/connect",
     "pages/parameter/parameter",
-    "pages/about/about"
+    "pages/about/about",
+    "pages/status/status",
+    "pages/home/home",
+    "pages/settings/settings"
   ],
   "window": {
     "backgroundTextStyle": "light",

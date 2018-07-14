@@ -1,0 +1,21 @@
+<!--pages/settings/settings.wxml-->
+
+<view class="list">
+    <view class="item">
+        <view>
+            <view class="icon icon-dianliang"></view>
+            <view>Power Reminder</view>
+        </view>
+        <slider bindchange="electricity" value="{{electricity}}" block-size="20" activeColor="#01aafd"
+                show-value></slider>
+    </view>
+
+    <view class="item">
+        <view>
+            <view class="icon icon-wd"></view>
+            <view>Power Reminder</view>
+        </view>
+        <slider bindchange="temperature" value="{{temperature}}" block-size="20" activeColor="#01aafd"
+                show-value></slider>
+    </view>
+</view>

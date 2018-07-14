@@ -1,0 +1,80 @@
+@charset "UTF-8";
+page {
+  background-color: #406fcb; }
+
+.container {
+  margin-top: 130rpx; }
+
+.progress_box {
+  margin: 0 auto;
+  position: relative;
+  width: 220px;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.progress_bg {
+  position: absolute;
+  width: 220px;
+  height: 220px; }
+
+.progress_canvas {
+  width: 220px;
+  height: 220px; }
+
+.progress_text {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.progress_info {
+  font-size: 36rpx;
+  padding-left: 16rpx;
+  letter-spacing: 2rpx; }
+
+.progress_dot {
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 50%;
+  background-color: #fb9126; }
+
+/*上面是圆环样式*/
+.dc_box {
+  position: relative;
+  width: 300rpx;
+  height: 300rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .dc_box .cd_img {
+    position: absolute;
+    width: 300rpx;
+    height: 300rpx;
+    z-index: -1; }
+  .dc_box .dc_text {
+    color: #ffffff;
+    font-size: 80rpx; }
+
+.fixed {
+  position: absolute;
+  bottom: 120rpx;
+  width: 100%; }
+  .fixed .list {
+    display: flex;
+    justify-content: space-around;
+    color: #ffffff; }
+    .fixed .list .item {
+      background-color: rgba(24, 162, 235, 0.5);
+      width: 210rpx;
+      height: 300rpx;
+      border-radius: 15rpx;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      flex-direction: column; }
+      .fixed .list .item view:nth-child(3) {
+        font-weight: bold; }
+      .fixed .list .item .icon {
+        font-size: 100rpx; }

@@ -1,0 +1,27 @@
+/* pages/settings/settings.wxss */
+@import "../../common";
+
+page {
+  background-color: #406fcb
+}
+
+.list {
+  padding: rpx(50);
+  .item {
+    view {
+      display: flex;
+      align-items: center;
+      color: #ffffff;
+    }
+    .icon {
+      font-size: rpx(60);
+      margin-right: rpx(10);
+    }
+    slider {
+      margin-left: rpx(80);
+      .wx-slider-value {
+        color: #fff !important;
+      }
+    }
+  }
+}

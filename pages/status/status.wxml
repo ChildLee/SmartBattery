@@ -1,0 +1,108 @@
+<view class="tab">
+    <view hover-class="navigator-hover" class="tab-item {{tabIndex===1?'tab-select':''}}" bindtap="tab" data-index="1">
+        information
+    </view>
+    <view hover-class="navigator-hover" class="tab-item {{tabIndex===2?'tab-select':''}}" bindtap="tab" data-index="2">
+        Protection
+    </view>
+    <view hover-class="navigator-hover" class="tab-item {{tabIndex===3?'tab-select':''}}" bindtap="tab" data-index="3">
+        Voltage
+    </view>
+</view>
+
+
+<!--information-->
+<block wx:if="{{tabIndex===1}}">
+    <view class="list">
+        <view class="item">
+            <view>Voltage</view>
+            <view>{{arr[0]/100}}V</view>
+        </view>
+        <view class="item">
+            <view>Nominal Capacity</view>
+            <view>{{arr[3]}}mAh</view>
+        </view>
+        <view class="item">
+            <view>Current</view>
+            <view>{{arr[1]}}mA</view>
+        </view>
+        <view class="item">
+            <view>Production Date</view>
+            <view>{{date}}</view>
+        </view>
+        <view class="item">
+            <view>Series</view>
+            <view>{{all[9]/10}}</view>
+        </view>
+        <view class="item">
+            <view>Charge Switch</view>
+            <view>{{charge?'Open':'Close'}}</view>
+        </view>
+        <view class="item">
+            <view>Discharge Switch</view>
+            <view>{{discharge?'Open':'Close'}}</view>
+        </view>
+    </view>
+</block>
+
+<!--Protection-->
+<block wx:if="{{tabIndex===2}}">
+    <view class="list">
+        <view class="item">
+            <view>Over Voltage</view>
+            <view class="icon {{state[15]==='1'?'icon-dun-yes':'icon-dun-no'}}"></view>
+        </view>
+        <view class="item">
+            <view>Under Voltage</view>
+            <view class="icon {{state[14]==='1'?'icon-dun-yes':'icon-dun-no'}}"></view>
+        </view>
+        <view class="item">
+            <view>Pack Over Voltage</view>
+            <view class="icon {{state[13]==='1'?'icon-dun-yes':'icon-dun-no'}}"></view>
+        </view>
+        <view class="item">
+            <view>Over Temp Charge</view>
+            <view class="icon {{state[12]==='1'?'icon-dun-yes':'icon-dun-no'}}"></view>
+        </view>
+        <view class="item">
+            <view>Under Temp Charge</view>
+            <view class="icon {{state[11]==='1'?'icon-dun-yes':'icon-dun-no'}}"></view>
+        </view>
+        <view class="item">
+            <view>Over Temp Discharge</view>
+            <view class="icon {{state[10]==='1'?'icon-dun-yes':'icon-dun-no'}}"></view>
+        </view>
+        <view class="item">
+            <view>Under Temp Discharge</view>
+            <view class="icon {{state[9]==='1'?'icon-dun-yes':'icon-dun-no'}}"></view>
+        </view>
+        <view class="item">
+            <view>Charge Over Current</view>
+            <view class="icon {{state[8]==='1'?'icon-dun-yes':'icon-dun-no'}}"></view>
+        </view>
+        <view class="item">
+            <view>Discharge Over Current</view>
+            <view class="icon {{state[7]==='1'?'icon-dun-yes':'icon-dun-no'}}"></view>
+        </view>
+        <view class="item">
+            <view>Short Circuit</view>
+            <view class="icon {{state[6]==='1'?'icon-dun-yes':'icon-dun-no'}}"></view>
+        </view>
+    </view>
+</block>
+
+<!--Voltage-->
+<block wx:if="{{tabIndex===3}}">
+    <view class="list">
+        <view class="item">
+            <view>Series</view>
+            <view>Voltage</view>
+        </view>
+        <block wx:for="{{voltage}}">
+            <view class="item">
+                <view>{{index}}</view>
+                <view>{{item/100}}V</view>
+            </view>
+        </block>
+    </view>
+</block>

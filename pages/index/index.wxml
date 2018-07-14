@@ -1,9 +1,9 @@
 <view class="list">
-    <view class="item" hover-class="navigator-hover">
+    <view class="item" hover-class="navigator-hover" bindtap="home">
         <view class="icon icon-dc"></view>
         <view>Smart Battery</view>
     </view>
-    <view class="item" hover-class="navigator-hover">
+    <view class="item" hover-class="navigator-hover" bindtap="status">
         <view class="icon icon-gongge"></view>
         <view>Cell Status</view>
     </view>
@@ -11,10 +11,10 @@
         <view class="icon icon-aixin"></view>
         <view>Parameter View</view>
     </view>
-    <view class="item" hover-class="navigator-hover">
+    <navigator url="/pages/settings/settings" class="item">
         <view class="icon icon-settings"></view>
         <view>Setting</view>
-    </view>
+    </navigator>
     <navigator url="/pages/connect/connect" class="item">
         <view class="icon icon-lanya"></view>
         <view>Bluetooth Connect</view>

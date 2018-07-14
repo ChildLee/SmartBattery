@@ -159,7 +159,7 @@ interface ICanvasContext {
     /**
      * 设置边框颜色, 如果没有设置 fillStyle，默认颜色为 black。
      */
-    setStrokeStyle(color: string): void;
+    setStrokeStyle(color: any): void;
 
     /**
      * 设置阴影
@@ -254,7 +254,7 @@ interface ICanvasContext {
     /**
      * 添加一个弧形路径到当前路径，顺时针绘制。
      */
-    arc(x: number, y: number, radius: number, startAngle: number, sweepAngle: number): void;
+    arc(x: number, y: number, radius: number, startAngle: number, sweepAngle: number, counterclockwise?: boolean): void;
 
     /**
      * 创建二次方贝塞尔曲线

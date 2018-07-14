@@ -1,5 +1,7 @@
-App({
+import dateFormat from './lib/dateformat.js'
 
+App({
+    dateFormat,
     data: {
         hex: ''
     },

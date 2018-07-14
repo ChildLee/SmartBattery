@@ -1,0 +1,37 @@
+@import "../../common";
+
+page {
+  background-color: #406fcb
+}
+
+.tab {
+  display: flex;
+  color: #fff;
+  background-color: #0060ad;
+  .tab-item {
+    flex: 1;
+    text-align: center;
+    height: rpx(120);
+    line-height: rpx(120);
+  }
+
+  .tab-select {
+    background-color: #3d9fee;
+  }
+}
+
+.list {
+  padding: 0 rpx(30);
+  .item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+    height: rpx(120);
+    @include border(false);
+
+    .icon {
+      font-size: rpx(50);
+    }
+  }
+}

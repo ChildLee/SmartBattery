@@ -2,22 +2,43 @@ const app = getApp()
 
 Page({
     onLoad() {
-
+        //1.dda50100ffff77
+        //2.dda50200fffe77
+        //3.dda50300fffd77
+        //4.dda50400fffc77
+        //5.dda50500fffb77
     },
 
     isConn() {
-        return app.data.devices
+        return app.data.deviceId
+    },
+
+    //home
+    home() {
+        if (this.isConn()) {
+            wx.showLoading({title: 'Loading'})
+            app.data.command = 6
+            this.write(arrbuffer('dda50300fffd77'))
+        } else {
+            wx.navigateTo({url: '/pages/connect/connect'})
+        }
+    },
+
+    //Status
+    status() {
+        if (this.isConn()) {
+            wx.showLoading({title: 'Loading'})
+            app.data.command = 3
+            this.write(arrbuffer('dda50300fffd77'))
+        } else {
+            wx.navigateTo({url: '/pages/connect/connect'})
+        }
     },
 
     //parameter
     parameter() {
         if (this.isConn()) {
             wx.showLoading({title: 'Loading'})
-            //1.dda50100ffff77
-            //2.dda50200fffe77
-            //3.dda50300fffd77
-            //4.dda50400fffc77
-            //5.dda50500fffb77
             app.data.command = 1
             this.write(arrbuffer('dda50100ffff77'))
         } else {
@@ -30,14 +51,7 @@ Page({
         if (this.isConn()) {
             wx.showLoading({title: 'Loading'})
             app.data.command = 5
-            //1.dda50100ffff77
-            //2.dda50200fffe77
-            //3.dda50300fffd77
-            //4.dda50400fffc77
-            //5.dda50500fffb77
-            this.write(arrbuffer('dda50500fffb77')).then(() => {
-
-            })
+            this.write(arrbuffer('dda50500fffb77'))
         } else {
             wx.navigateTo({url: '/pages/connect/connect'})
         }
@@ -78,7 +92,6 @@ Page({
         })
     }
 })
-
 
 // 将16进制转化为ArrayBuffer
 function arrbuffer(hex) {

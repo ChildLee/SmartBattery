@@ -52,6 +52,24 @@
 					"name": "parameter",
 					"pathName": "pages/parameter/parameter",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "status",
+					"pathName": "pages/status/status",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "home",
+					"pathName": "pages/home/home",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "settings",
+					"pathName": "pages/settings/settings",
+					"query": ""
 				}
 			]
 		}

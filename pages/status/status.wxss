@@ -1,0 +1,39 @@
+page {
+  background-color: #406fcb; }
+
+.tab {
+  display: flex;
+  color: #fff;
+  background-color: #0060ad; }
+  .tab .tab-item {
+    flex: 1;
+    text-align: center;
+    height: 120rpx;
+    line-height: 120rpx; }
+  .tab .tab-select {
+    background-color: #3d9fee; }
+
+.list {
+  padding: 0 30rpx; }
+  .list .item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+    height: 120rpx; }
+    .list .item:not(:last-child) {
+      position: relative; }
+      .list .item:not(:last-child):after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 200%;
+        height: 200%;
+        border-bottom: 1px solid #e0e0e0;
+        box-sizing: border-box;
+        transform: scale(0.5);
+        transform-origin: 0 0;
+        pointer-events: none; }
+    .list .item .icon {
+      font-size: 50rpx; }

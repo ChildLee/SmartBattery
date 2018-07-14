@@ -24,6 +24,10 @@ Page({
                 characteristicId: app.data.characteristicId,
                 name: app.data.name
             })
+        } else if (app.data.devices) {
+            this.setData({
+                devices: app.data.devices
+            })
         } else {
             this.init()
         }
@@ -46,6 +50,7 @@ Page({
     refresh() {
         wx.closeBluetoothAdapter({
             success: () => {
+                app.data = {}
                 this.setData({
                     // 设备列表
                     devices: [],
@@ -144,6 +149,7 @@ Page({
         wx.onBluetoothDeviceFound((res) => {
             if (res['devices'][0].name) {
                 const devices = this.data.devices.concat(res['devices'])
+                app.data.devices = devices
                 this.setData({
                     devices
                 })
@@ -258,10 +264,35 @@ Page({
             wx.hideLoading()
             return
         }
+        //status
+        if (app.data.command === 3) {
+            app.data.status = app.data.hex
+            app.data.command = 4
+            this.write(arrbuffer('dda50400fffc77'))
+            return
+        }
+        if (app.data.command === 4) {
+            app.data.voltage = app.data.hex
+            wx.navigateTo({url: '/pages/status/status'})
+            wx.hideLoading()
+            return
+        }
+        //about
         if (app.data.command === 5) {
             app.data.about = app.data.hex
             wx.navigateTo({url: '/pages/about/about'})
             wx.hideLoading()
+            return
+        }
+        if (app.data.command === 6) {
+            app.data.home = app.data.hex
+            wx.navigateTo({url: '/pages/home/home'})
+            wx.hideLoading()
+            return
+        }
+        if (app.data.command === 7) {
+            app.data.home = app.data.hex
+            console.log(5555)
             return
         }
     },
