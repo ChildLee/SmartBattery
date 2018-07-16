@@ -11,8 +11,8 @@
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.1.1",
-	"appid": "wxac71cf64ebc2da5c",
+	"libVersion": "2.2.0",
+	"appid": "wxfa4f097330089fbd",
 	"projectname": "SmartBattery",
 	"isGameTourist": false,
 	"condition": {
