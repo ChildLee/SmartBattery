@@ -7,7 +7,9 @@ Page({
 
     onLoad: function () {
         this.init()
-        setInterval(() => {
+        clearInterval(app.inter1)
+        clearInterval(app.inter2)
+        app.inter1 = setInterval(() => {
             if (this.isConn()) {
                 this.init()
                 app.data.command = 7
@@ -16,7 +18,7 @@ Page({
                 wx.navigateTo({url: '/pages/connect/connect'})
             }
         }, 5000)
-        setInterval(() => {
+        app.inter2 = setInterval(() => {
             if (this.isConn()) {
                 const electricity = wx.getStorageSync('electricity')
                 const temperature = wx.getStorageSync('temperature')
