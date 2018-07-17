@@ -3,25 +3,26 @@
 const app = getApp()
 
 Page({
-    data: {},
+    data: {load: false},
 
-    onLoad: function () {
-        this.init()
+    onUnload() {
         clearInterval(app.inter1)
         clearInterval(app.inter2)
-        app.inter1 = setInterval(() => {
-            if (this.isConn()) {
-                this.init()
-                app.data.command = 7
+    },
+
+    onLoad: function () {
+        wx.showLoading({title: 'Loading'})
+        this.onUnload()
+        if (this.isConn()) {
+            app.data.home = ''
+            this.onBLE()
+            this.write(arrbuffer('dda50300fffd77'))
+            app['inter1'] = setInterval(() => {
                 this.write(arrbuffer('dda50300fffd77'))
-            } else {
-                wx.navigateTo({url: '/pages/connect/connect'})
-            }
-        }, 5000)
-        app.inter2 = setInterval(() => {
-            if (this.isConn()) {
-                const electricity = wx.getStorageSync('electricity')
-                const temperature = wx.getStorageSync('temperature')
+            }, 2222)
+            app['inter2'] = setInterval(() => {
+                const electricity = wx.getStorageSync('electricity') || 0
+                const temperature = wx.getStorageSync('temperature') || 100
                 if (this.data.electricity < electricity) {
                     wx.showToast({
                         title: `Battery power is less than ${this.data.electricity}%`,
@@ -36,25 +37,38 @@ Page({
                         duration: 5000
                     })
                 }
-            } else {
-                wx.navigateTo({url: '/pages/connect/connect'})
+            }, 1000 * 60 * 3)
+        } else {
+            wx.navigateTo({url: '/pages/connect/connect'})
+        }
+    },
+
+    onBLE() {
+        wx.onBLECharacteristicValueChange((res) => {
+            const hex = ab2hex(res.value)
+            app.data.home += hex
+            if (/77$/.test(hex)) {
+                this.init(app.data.home)
+                app.data.home = ''
+                if (!this.data.load) {
+                    this.setData({
+                        load: true
+                    })
+                }
+                wx.hideLoading()
             }
-        }, 1000 * 60 * 5)
+        })
     },
 
-    isConn() {
-        return app.data.deviceId
-    },
-
-    init() {
-        const hex = app.data.home.slice(8, -6)
-
-        const a1 = hex.substring(0, 32).match(/[\da-f]{4}/gi)
-        const a2 = hex.substring(32).match(/[\da-f]{2}/gi)
+    init(hex) {
+        hex = hex.slice(8, -6)
+        const a1 = hex.substring(0, 36).match(/[\da-f]{4}/gi)
+        const a2 = hex.substring(36).match(/[\da-f]{2}/gi)
 
         const all = a1.concat(a2)
+
         //温度
-        let Temperature = parseInt(all[15] + all[16], 16)
+        let Temperature = parseInt(all[14] + all[15], 16)
         let arr = []
         all.forEach((value, index, array) => {
             arr[index] = parseInt(value, 16)
@@ -67,6 +81,10 @@ Page({
             //电量
             electricity: arr[10]
         })
+    },
+
+    isConn() {
+        return app.data.deviceId
     },
 
     drawProgressbg: function () {
@@ -123,6 +141,17 @@ Page({
         })
     }
 })
+
+// ArrayBuffer转16进度字符串示例
+function ab2hex(buffer) {
+    const hexArr = Array.prototype.map.call(
+        new Uint8Array(buffer),
+        function (bit) {
+            return ('00' + bit.toString(16)).slice(-2)
+        }
+    )
+    return hexArr.join('')
+}
 
 // 将16进制转化为ArrayBuffer
 function arrbuffer(hex) {

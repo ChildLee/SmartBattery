@@ -1,34 +1,36 @@
-<view class="container">
-    <view class='progress_box'>
-        <canvas class="progress_bg" canvas-id="canvasProgressbg"></canvas>
-        <canvas class="progress_canvas" canvas-id="canvasProgress"></canvas>
-        <view class="progress_text">
-            <view class="dc_box">
-                <image class="cd_img" src="/image/cd.png"></image>
-                <view class="dc_text">
-                    {{electricity}}%
+<block wx:if="{{load}}">
+    <view class="container">
+        <view class='progress_box'>
+            <canvas class="progress_bg" canvas-id="canvasProgressbg"></canvas>
+            <canvas class="progress_canvas" canvas-id="canvasProgress"></canvas>
+            <view class="progress_text">
+                <view class="dc_box">
+                    <image class="cd_img" src="/image/cd.png"></image>
+                    <view class="dc_text">
+                        {{electricity}}%
+                    </view>
                 </view>
             </view>
         </view>
     </view>
-</view>
 
-<view class="fixed">
-    <view class="list">
-        <view class="item">
-            <view class="icon icon-sd"></view>
-            <view>Voltage</view>
-            <view>{{arr[0]/100}}V</view>
-        </view>
-        <view class="item">
-            <view class="icon icon-xd"></view>
-            <view>Current</view>
-            <view>{{arr[1]}}mA</view>
-        </view>
-        <view class="item">
-            <view class="icon icon-wd"></view>
-            <view>Temperature</view>
-            <view>{{Temperature/100}}℃</view>
+    <view class="fixed">
+        <view class="list">
+            <view class="item">
+                <view class="icon icon-sd"></view>
+                <view>Voltage</view>
+                <view>{{arr[0]/100}}V</view>
+            </view>
+            <view class="item">
+                <view class="icon icon-xd"></view>
+                <view>Current</view>
+                <view>{{arr[1]*10}}mA</view>
+            </view>
+            <view class="item">
+                <view class="icon icon-wd"></view>
+                <view>Temperature</view>
+                <view>{{Temperature/100}}℃</view>
+            </view>
         </view>
     </view>
-</view>
+</block>

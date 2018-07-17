@@ -16,9 +16,7 @@ Page({
     //home
     home() {
         if (this.isConn()) {
-            wx.showLoading({title: 'Loading'})
-            app.data.command = 6
-            this.write(arrbuffer('dda50300fffd77'))
+            wx.navigateTo({url: '/pages/home/home'})
         } else {
             wx.navigateTo({url: '/pages/connect/connect'})
         }
@@ -27,9 +25,7 @@ Page({
     //Status
     status() {
         if (this.isConn()) {
-            wx.showLoading({title: 'Loading'})
-            app.data.command = 3
-            this.write(arrbuffer('dda50300fffd77'))
+            wx.navigateTo({url: '/pages/status/status'})
         } else {
             wx.navigateTo({url: '/pages/connect/connect'})
         }
@@ -38,9 +34,7 @@ Page({
     //parameter
     parameter() {
         if (this.isConn()) {
-            wx.showLoading({title: 'Loading'})
-            app.data.command = 1
-            this.write(arrbuffer('dda50100ffff77'))
+            wx.navigateTo({url: '/pages/parameter/parameter'})
         } else {
             wx.navigateTo({url: '/pages/connect/connect'})
         }
@@ -49,53 +43,9 @@ Page({
     //about
     about() {
         if (this.isConn()) {
-            wx.showLoading({title: 'Loading'})
-            app.data.command = 5
-            this.write(arrbuffer('dda50500fffb77'))
+            wx.navigateTo({url: '/pages/about/about'})
         } else {
             wx.navigateTo({url: '/pages/connect/connect'})
         }
-    },
-
-    // 写入二进制数据
-    write(buffer) {
-        return new Promise((resolve, reject) => {
-            wx.writeBLECharacteristicValue({
-                deviceId: app.data.deviceId,
-                serviceId: app.data.serviceId,
-                characteristicId: app.data.characteristicId,
-                value: buffer,
-                success: (res) => {
-                    resolve(res)
-                },
-                fail: (err) => {
-                    reject(err)
-                }
-            })
-        })
-    },
-
-    // 读取数据
-    read() {
-        return new Promise((resolve, reject) => {
-            wx.readBLECharacteristicValue({
-                deviceId: app.data.deviceId,
-                serviceId: app.data.serviceId,
-                characteristicId: app.data.characteristicId,
-                success: (res) => {
-                    resolve(res)
-                },
-                fail: (err) => {
-                    reject(err)
-                }
-            })
-        })
     }
 })
-
-// 将16进制转化为ArrayBuffer
-function arrbuffer(hex) {
-    return new Uint8Array(hex.match(/[\da-f]{2}/gi).map(function (h) {
-        return parseInt(h, 16)
-    })).buffer
-}

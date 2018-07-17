@@ -1,66 +1,68 @@
-<view class="list">
-    <view class="item">
-        <view>Cell Over Voltage</view>
-        <view>{{parameter[0][0]/100}}V</view>
+<block wx:if="{{load}}">
+    <view class="list">
+        <view class="item">
+            <view>Cell Over Voltage</view>
+            <view>{{parameter[0][0]/100}}V</view>
+        </view>
+        <view class="item">
+            <view>Cell Over Voltage Release</view>
+            <view>{{parameter[0][1]/100}}V</view>
+        </view>
+        <view class="item">
+            <view>Cell Under Voltage</view>
+            <view>{{parameter[0][2]/100}}V</view>
+        </view>
+        <view class="item">
+            <view>Cell Under Voltage Release</view>
+            <view>{{parameter[0][3]/100}}V</view>
+        </view>
+        <view class="item">
+            <view>Battery Pack Over Voltage</view>
+            <view>{{parameter[0][4]/100}}V</view>
+        </view>
+        <view class="item">
+            <view>Battery Pack Under Voltage</view>
+            <view>{{parameter[0][5]/100}}V</view>
+        </view>
+        <view class="item">
+            <view>Charge High Temp</view>
+            <view>{{parameter[0][6]/10}}℃</view>
+        </view>
+        <view class="item">
+            <view>Discharge High Temp</view>
+            <view>{{parameter[0][7]/10}}℃</view>
+        </view>
+        <view class="item">
+            <view>Charge Over Current</view>
+            <view>{{parameter[1][0]/100}}A</view>
+        </view>
+        <view class="item">
+            <view>Discharge Over Current</view>
+            <view>{{parameter[1][1]/100}}A</view>
+        </view>
+        <view class="item">
+            <view>Hardware Over Current</view>
+            <view>{{parameter[1][2]/100}}A</view>
+        </view>
+        <view class="item">
+            <view>Hardware Over Current Delay</view>
+            <view>{{parameter[1][3]}}ms</view>
+        </view>
+        <view class="item">
+            <view>Hardware Short Circuit</view>
+            <view>{{parameter[1][4]/100}}A</view>
+        </view>
+        <view class="item">
+            <view>Hardware Short Circuit Delay</view>
+            <view>{{parameter[1][5]}}us</view>
+        </view>
+        <view class="item">
+            <view>Balanced Open Voltage</view>
+            <view>{{parameter[1][6]/100}}V</view>
+        </view>
+        <view class="item">
+            <view>Serial Number</view>
+            <view>{{parameter[1][7]}}</view>
+        </view>
     </view>
-    <view class="item">
-        <view>Cell Over Voltage Release</view>
-        <view>{{parameter[0][1]/100}}V</view>
-    </view>
-    <view class="item">
-        <view>Cell Under Voltage</view>
-        <view>{{parameter[0][2]/100}}V</view>
-    </view>
-    <view class="item">
-        <view>Cell Under Voltage Release</view>
-        <view>{{parameter[0][3]/100}}V</view>
-    </view>
-    <view class="item">
-        <view>Battery Pack Over Voltage</view>
-        <view>{{parameter[0][4]/100}}V</view>
-    </view>
-    <view class="item">
-        <view>Battery Pack Under Voltage</view>
-        <view>{{parameter[0][5]/100}}V</view>
-    </view>
-    <view class="item">
-        <view>Charge High Temp</view>
-        <view>{{parameter[0][6]/10}}℃</view>
-    </view>
-    <view class="item">
-        <view>Discharge High Temp</view>
-        <view>{{parameter[0][7]/10}}℃</view>
-    </view>
-    <view class="item">
-        <view>Charge Over Current</view>
-        <view>{{parameter[1][0]/100}}A</view>
-    </view>
-    <view class="item">
-        <view>Discharge Over Current</view>
-        <view>{{parameter[1][1]/100}}A</view>
-    </view>
-    <view class="item">
-        <view>Hardware Over Current</view>
-        <view>{{parameter[1][2]/100}}A</view>
-    </view>
-    <view class="item">
-        <view>Hardware Over Current Delay</view>
-        <view>{{parameter[1][3]}}ms</view>
-    </view>
-    <view class="item">
-        <view>Hardware Short Circuit</view>
-        <view>{{parameter[1][4]/100}}A</view>
-    </view>
-    <view class="item">
-        <view>Hardware Short Circuit Delay</view>
-        <view>{{parameter[1][5]}}us</view>
-    </view>
-    <view class="item">
-        <view>Balanced Open Voltage</view>
-        <view>{{parameter[1][6]/100}}V</view>
-    </view>
-    <view class="item">
-        <view>Serial Number</view>
-        <view>{{parameter[1][7]}}</view>
-    </view>
-</view>
+</block>

@@ -160,8 +160,6 @@ Page({
     // 监听连接状态
     onState() {
         wx.onBLEConnectionStateChange((res) => {
-            console.log('蓝牙连接状态')
-            console.log(res)
             if (!res.connected) {
                 app['data'] = {}
                 this.setData({
@@ -226,110 +224,8 @@ Page({
             serviceId: serviceId,
             characteristicId: characteristicId,
             success: () => {
-                //监听特征值变化
-                this.onCharacteristic()
-            },
-            fail: (err) => {
-                console.log(err)
+
             }
-        })
-    },
-
-    // 监听低功耗蓝牙设备的特征值变化
-    onCharacteristic() {
-        wx.onBLECharacteristicValueChange((res) => {
-            const hex = ab2hex(res.value)
-            console.log(hex)
-            app.data.hex += hex
-            if (/77$/.test(hex)) {
-                this.over()
-                app.data.hex = ''
-            }
-        })
-    },
-
-    // 获取数据结束
-    over() {
-        if (app.data.command === 1) {
-            let arr = []
-            arr.push(app.data.hex)
-            app.data.parameter = arr
-            app.data.command = 2
-            this.write(arrbuffer('dda50200fffe77'))
-            return
-        }
-        if (app.data.command === 2) {
-            app.data.parameter.push(app.data.hex)
-            wx.navigateTo({url: '/pages/parameter/parameter'})
-            wx.hideLoading()
-            return
-        }
-        //status
-        if (app.data.command === 3) {
-            app.data.status = app.data.hex
-            app.data.command = 4
-            this.write(arrbuffer('dda50400fffc77'))
-            return
-        }
-        if (app.data.command === 4) {
-            app.data.voltage = app.data.hex
-            wx.navigateTo({url: '/pages/status/status'})
-            wx.hideLoading()
-            return
-        }
-        //about
-        if (app.data.command === 5) {
-            app.data.about = app.data.hex
-            wx.navigateTo({url: '/pages/about/about'})
-            wx.hideLoading()
-            return
-        }
-        if (app.data.command === 6) {
-            app.data.home = app.data.hex
-            wx.navigateTo({url: '/pages/home/home'})
-            wx.hideLoading()
-            return
-        }
-        if (app.data.command === 7) {
-            app.data.home = app.data.hex
-            console.log(5555)
-            return
-        }
-    },
-
-    // 写入二进制数据
-    write(buffer) {
-        return new Promise((resolve, reject) => {
-            wx.writeBLECharacteristicValue({
-                deviceId: app.data.deviceId,
-                serviceId: app.data.serviceId,
-                characteristicId: app.data.characteristicId,
-                value: buffer,
-                success: (res) => {
-                    resolve(res)
-                },
-                fail: (err) => {
-                    reject(err)
-                }
-            })
         })
     }
 })
-
-// ArrayBuffer转16进度字符串示例
-function ab2hex(buffer) {
-    const hexArr = Array.prototype.map.call(
-        new Uint8Array(buffer),
-        function (bit) {
-            return ('00' + bit.toString(16)).slice(-2)
-        }
-    )
-    return hexArr.join('')
-}
-
-// 将16进制转化为ArrayBuffer
-function arrbuffer(hex) {
-    return new Uint8Array(hex.match(/[\da-f]{2}/gi).map(function (h) {
-        return parseInt(h, 16)
-    })).buffer
-}

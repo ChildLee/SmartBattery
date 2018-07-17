@@ -26,4 +26,12 @@
 // }
 // console.log(arr)
 
-console.log(parseInt('0bd6',16))
+console.log(parseInt('03E8', 16))
+
+// const voltage = 'dda504080f630f3c0f660f3df9f977'.slice(8, -6).match(/[\da-f]{4}/gi)
+// console.log(voltage)
+// voltage.forEach((value, index, array) => {
+//     array[index] = parseInt(value, 16)
+// })
+// console.log(voltage)
+
