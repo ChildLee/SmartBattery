@@ -1,5 +1,5 @@
 page {
-  background: linear-gradient(#14529e, #295fb3, #406fcb, #517fdc, #578de3, #4ea3dc, #3ab8cc, #2ac6be); }
+  background-color: #406fcb; }
 
 .conn-box {
   padding: 0 30rpx; }

@@ -28,7 +28,7 @@
             </view>
             <view class="item">
                 <view>Current</view>
-                <view>{{arr[1]}}mA</view>
+                <view>{{current*10}}mA</view>
             </view>
             <view class="item">
                 <view>Production Date</view>

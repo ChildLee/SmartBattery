@@ -25,7 +25,6 @@ Page({
             this.onBLE()
             this.write(arrbuffer('dda50300fffd77'))
             app['inter1'] = setInterval(() => {
-                console.log(1)
                 this.write(arrbuffer('dda50300fffd77'))
             }, 2222)
         } else {
@@ -66,6 +65,8 @@ Page({
         const a2 = hex.substring(36).match(/[\da-f]{2}/gi)
 
         const all = a1.concat(a2)
+        console.log(all)
+        const current = parseInt(all[1].substring(1) , 16)
         let arr = []
         all.forEach((value, index, array) => {
             arr[index] = parseInt(value, 16)
@@ -94,6 +95,7 @@ Page({
             array[index] = parseInt(value, 16)
         })
         this.setData({
+            current:current,
             voltage: voltage,
             all: all,
             charge: Number(charging[15]),

@@ -6,7 +6,7 @@
             <view class="icon icon-dianliang"></view>
             <view>Power Reminder</view>
         </view>
-        <slider bindchange="electricity" value="{{electricity}}" block-size="20" activeColor="#01aafd"
+        <slider bindchange="electricity" value="{{electricity}}" activeColor="#01aafd"
                 show-value></slider>
     </view>
 
@@ -15,7 +15,7 @@
             <view class="icon icon-wd"></view>
             <view>Power Reminder</view>
         </view>
-        <slider bindchange="temperature" value="{{temperature}}" block-size="20" activeColor="#01aafd"
+        <slider bindchange="temperature" value="{{temperature}}" activeColor="#01aafd"
                 show-value></slider>
     </view>
 </view>

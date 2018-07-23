@@ -33,7 +33,6 @@ Page({
             const hex = ab2hex(res.value)
             app.data.parameter += hex
             if (/77$/.test(hex)) {
-                console.log(app.data.parameter)
                 if (app.data.parameterSwitch) {
                     app.data.arr.push(app.data.parameter)
                     app.data.parameter = ''

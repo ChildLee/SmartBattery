@@ -48,6 +48,7 @@ Page({
             const hex = ab2hex(res.value)
             app.data.home += hex
             if (/77$/.test(hex)) {
+
                 this.init(app.data.home)
                 app.data.home = ''
                 if (!this.data.load) {
@@ -66,6 +67,12 @@ Page({
         const a2 = hex.substring(36).match(/[\da-f]{2}/gi)
 
         const all = a1.concat(a2)
+        const current = parseInt(all[1].substring(1) , 16)
+        //console.log(all[1])
+        // if (all[1][0]==='8') {
+        //     console.log(all[1][0])
+        // }
+
 
         //温度
         let Temperature = parseInt(all[14] + all[15], 16)
@@ -75,7 +82,10 @@ Page({
         })
 
         this.drawCircle(arr[10] / 100)
+
+
         this.setData({
+            current: current,
             Temperature,
             arr: arr,
             //电量

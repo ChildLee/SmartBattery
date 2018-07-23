@@ -3,7 +3,7 @@
 // console.log(0x24e1 & 0x1f)
 //
 //
-// console.log(0xb0)
+// console.log(0x0F)
 // console.log(Math.pow(2,6))
 //
 // console.log((0x0201 & 0x01)>>0)
@@ -19,16 +19,16 @@
 // }
 
 //
-// let arr = parseInt('00', 16).toString(2).split('')
-// let len = arr.length
-// for (let i = 0; i < 16 - len; i++) {
-//     arr.unshift('0')
-// }
-// console.log(arr)
+let arr = parseInt('0201', 16).toString(2).split('')
+let len = arr.length
+for (let i = 0; i < 16 - len; i++) {
+    arr.unshift('0')
+}
+console.log(arr)
 
-console.log(parseInt('03E8', 16))
+// console.log(parseInt('0201', 16))
 
-// const voltage = 'dda504080f630f3c0f660f3df9f977'.slice(8, -6).match(/[\da-f]{4}/gi)
+// const voltage = 'DDA5041E0F660F630F630F640F3E0F630F370F5B0F650F3B0F630F630F3C0F660F3DF9F977DDA504080F630F3C0F660F3DF9F977'.slice(8, -6).match(/[\da-f]{4}/gi)
 // console.log(voltage)
 // voltage.forEach((value, index, array) => {
 //     array[index] = parseInt(value, 16)

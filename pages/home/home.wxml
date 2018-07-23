@@ -24,7 +24,7 @@
             <view class="item">
                 <view class="icon icon-xd"></view>
                 <view>Current</view>
-                <view>{{arr[1]*10}}mA</view>
+                <view>{{current*10}}mA</view>
             </view>
             <view class="item">
                 <view class="icon icon-wd"></view>
