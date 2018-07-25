@@ -3,7 +3,7 @@
 const app = getApp()
 
 Page({
-    data: {load: false},
+    data: {load: false, charging: false},
 
     onUnload() {
         clearInterval(app.inter1)
@@ -21,23 +21,29 @@ Page({
                 this.write(arrbuffer('dda50300fffd77'))
             }, 2222)
             app['inter2'] = setInterval(() => {
-                const electricity = wx.getStorageSync('electricity') || 0
-                const temperature = wx.getStorageSync('temperature') || 100
-                if (this.data.electricity < electricity) {
-                    wx.showToast({
-                        title: `Battery power is less than ${this.data.electricity}%`,
-                        icon: 'none',
-                        duration: 5000
-                    })
+
+                if (wx.getStorageSync('electricitySwitch')) {
+                    const electricity = wx.getStorageSync('electricity') || 0
+                    if (this.data.electricity < electricity) {
+                        wx.showToast({
+                            title: `Battery power is less than ${this.data.electricity}%`,
+                            icon: 'none',
+                            duration: 5000
+                        })
+                    }
                 }
-                if (this.data.temperature > temperature) {
-                    wx.showToast({
-                        title: `Battery temperature is higher than ${this.data.temperature}℃ `,
-                        icon: 'none',
-                        duration: 5000
-                    })
+
+                if (wx.getStorageSync('temperatureSwitch')) {
+                    const temperature = wx.getStorageSync('temperature') || 0
+                    if (this.data.temperature > temperature) {
+                        wx.showToast({
+                            title: `Battery temperature is higher than ${this.data.temperature}℃ `,
+                            icon: 'none',
+                            duration: 5000
+                        })
+                    }
                 }
-            }, 1000 * 60 * 3)
+            }, 1000 * 60)
         } else {
             wx.navigateTo({url: '/pages/connect/connect'})
         }
@@ -67,13 +73,13 @@ Page({
         const a2 = hex.substring(36).match(/[\da-f]{2}/gi)
 
         const all = a1.concat(a2)
-        const current = parseInt(all[1].substring(1) , 16)
-        //console.log(all[1])
-        // if (all[1][0]==='8') {
-        //     console.log(all[1][0])
-        // }
-
-
+        const current = parseInt(all[1].substring(1), 16)
+        let charging = false
+        let color = '#f7bf11'
+        if (Number(all[1].substring(0, 1)) === 0) {
+            color = '#6dd34c'
+            charging = true
+        }
         //温度
         let Temperature = parseInt(all[14] + all[15], 16)
         let arr = []
@@ -81,10 +87,10 @@ Page({
             arr[index] = parseInt(value, 16)
         })
 
-        this.drawCircle(arr[10] / 100)
-
+        this.drawCircle(arr[10] / 100, color)
 
         this.setData({
+            charging,
             current: current,
             Temperature,
             arr: arr,
@@ -110,7 +116,7 @@ Page({
         ctx.draw()
     },
 
-    drawCircle: function (step) {
+    drawCircle: function (step, color) {
         let context = wx.createCanvasContext('canvasProgress')
         // 设置渐变
         // let gradient = context.createLinearGradient(200, 100, 100, 200)
@@ -119,7 +125,7 @@ Page({
         // gradient.addColorStop('1.0', '#5956CC')
 
         context.setLineWidth(20)
-        context.setStrokeStyle('#6dd34c')
+        context.setStrokeStyle(color)
         context.setLineCap('round')
         context.beginPath()
         // 参数step 为绘制的圆环周长，从0到2为一周 。 -Math.PI / 2 将起始角设在12点钟位置 ，结束角 通过改变 step 的值确定

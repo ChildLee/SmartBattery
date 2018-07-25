@@ -5,7 +5,7 @@
             <canvas class="progress_canvas" canvas-id="canvasProgress"></canvas>
             <view class="progress_text">
                 <view class="dc_box">
-                    <image class="cd_img" src="/image/cd.png"></image>
+                    <image class="cd_img" src="/image/{{charging?'cd':'fd'}}.png"></image>
                     <view class="dc_text">
                         {{electricity}}%
                     </view>
@@ -24,7 +24,7 @@
             <view class="item">
                 <view class="icon icon-xd"></view>
                 <view>Current</view>
-                <view>{{current*10}}mA</view>
+                <view>{{charging?'':'-'}}{{current*10}}mA</view>
             </view>
             <view class="item">
                 <view class="icon icon-wd"></view>

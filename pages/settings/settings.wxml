@@ -6,8 +6,16 @@
             <view class="icon icon-dianliang"></view>
             <view>Power Reminder</view>
         </view>
-        <slider bindchange="electricity" value="{{electricity}}" activeColor="#01aafd"
-                show-value></slider>
+        <view>
+            <slider bindchanging="electricity" bindchange="electricity" value="{{electricity}}"
+                    activeColor="#01aafd"></slider>
+            <view>{{electricity}}%</view>
+            <checkbox-group bindchange="electricityChange">
+                <checkbox value="temperature"></checkbox>
+            </checkbox-group>
+        </view>
+
+
     </view>
 
     <view class="item">
@@ -15,7 +23,13 @@
             <view class="icon icon-wd"></view>
             <view>Power Reminder</view>
         </view>
-        <slider bindchange="temperature" value="{{temperature}}" activeColor="#01aafd"
-                show-value></slider>
+        <view>
+            <slider bindchanging="temperature" bindchange="temperature" value="{{temperature}}"
+                    activeColor="#01aafd"></slider>
+            <view>{{temperature}}℃</view>
+            <checkbox-group bindchange="temperatureChange">
+                <checkbox value="temperature"></checkbox>
+            </checkbox-group>
+        </view>
     </view>
 </view>

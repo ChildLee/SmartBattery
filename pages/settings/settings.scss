@@ -18,10 +18,37 @@ page {
       margin-right: rpx(10);
     }
     slider {
+      width: 100%;
       margin-left: rpx(80);
       .wx-slider-value {
         color: #fff !important;
       }
     }
   }
+}
+
+checkbox .wx-checkbox-input {
+  margin-left: rpx(30);
+  border-radius: 50%;
+  width: rpx(32);
+  height: rpx(32);
+  background-color: #406fcb;
+  border: 2px solid #ffffff;
+}
+
+//选中后的 背景样式
+checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+  border: 2px solid #5ffaf7;
+  background-color: #406fcb;
+}
+
+//选中后的 对勾样式
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+  font-family:"icon" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: "\e82e";
+  color: #5ffaf7;
 }

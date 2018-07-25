@@ -12,6 +12,28 @@ page {
     font-size: 60rpx;
     margin-right: 10rpx; }
   .list .item slider {
+    width: 100%;
     margin-left: 80rpx; }
     .list .item slider .wx-slider-value {
       color: #fff !important; }
+
+checkbox .wx-checkbox-input {
+  margin-left: 30rpx;
+  border-radius: 50%;
+  width: 32rpx;
+  height: 32rpx;
+  background-color: #406fcb;
+  border: 2px solid #ffffff; }
+
+checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+  border: 2px solid #5ffaf7;
+  background-color: #406fcb; }
+
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+  font-family: "icon" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: "\e82e";
+  color: #5ffaf7; }
