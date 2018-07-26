@@ -7,7 +7,9 @@ Page({
     onLoad() {
         this.setData({
             electricity: wx.getStorageSync('electricity') || 0,
-            temperature: wx.getStorageSync('temperature') || 0
+            electricitySwitch: wx.getStorageSync('electricitySwitch'),
+            temperature: wx.getStorageSync('temperature') || 0,
+            temperatureSwitch: wx.getStorageSync('temperatureSwitch')
         })
     },
 

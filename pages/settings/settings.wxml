@@ -11,7 +11,7 @@
                     activeColor="#01aafd"></slider>
             <view>{{electricity}}%</view>
             <checkbox-group bindchange="electricityChange">
-                <checkbox value="temperature"></checkbox>
+                <checkbox value="electricity" checked="{{electricitySwitch}}"></checkbox>
             </checkbox-group>
         </view>
 
@@ -28,7 +28,7 @@
                     activeColor="#01aafd"></slider>
             <view>{{temperature}}℃</view>
             <checkbox-group bindchange="temperatureChange">
-                <checkbox value="temperature"></checkbox>
+                <checkbox value="temperature" checked="{{temperatureSwitch}}"></checkbox>
             </checkbox-group>
         </view>
     </view>

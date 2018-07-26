@@ -3,11 +3,15 @@
 const app = getApp()
 
 Page({
-    data: {load: false, charging: false},
+    data: {
+        load: false,
+        charging: false,
+        //提示
+        prompt: true
+    },
 
     onUnload() {
         clearInterval(app.inter1)
-        clearInterval(app.inter2)
     },
 
     onLoad: function () {
@@ -20,30 +24,7 @@ Page({
             app['inter1'] = setInterval(() => {
                 this.write(arrbuffer('dda50300fffd77'))
             }, 2222)
-            app['inter2'] = setInterval(() => {
 
-                if (wx.getStorageSync('electricitySwitch')) {
-                    const electricity = wx.getStorageSync('electricity') || 0
-                    if (this.data.electricity < electricity) {
-                        wx.showToast({
-                            title: `Battery power is less than ${this.data.electricity}%`,
-                            icon: 'none',
-                            duration: 5000
-                        })
-                    }
-                }
-
-                if (wx.getStorageSync('temperatureSwitch')) {
-                    const temperature = wx.getStorageSync('temperature') || 0
-                    if (this.data.temperature > temperature) {
-                        wx.showToast({
-                            title: `Battery temperature is higher than ${this.data.temperature}℃ `,
-                            icon: 'none',
-                            duration: 5000
-                        })
-                    }
-                }
-            }, 1000 * 60)
         } else {
             wx.navigateTo({url: '/pages/connect/connect'})
         }
@@ -89,14 +70,43 @@ Page({
 
         this.drawCircle(arr[10] / 100, color)
 
+        const electricity = arr[10]
         this.setData({
             charging,
             current: current,
-            Temperature,
             arr: arr,
             //电量
-            electricity: arr[10]
+            electricity,
+            //温度
+            Temperature
         })
+
+        if (this.data.prompt) {
+
+            if (wx.getStorageSync('electricitySwitch')) {
+                const electricity = wx.getStorageSync('electricity') || 0
+                if (this.data.electricity < electricity) {
+                    wx.showToast({
+                        title: `Battery power is less than ${this.data.electricity}%`,
+                        icon: 'none',
+                        duration: 2000
+                    })
+                }
+            }
+
+            if (wx.getStorageSync('temperatureSwitch')) {
+                const temperature = wx.getStorageSync('temperature') || 0
+                if (this.data.temperature > temperature) {
+                    wx.showToast({
+                        title: `Battery temperature is higher than ${this.data.temperature}℃ `,
+                        icon: 'none',
+                        duration: 2000
+                    })
+                }
+            }
+
+            this.data.prompt = false
+        }
     },
 
     isConn() {
