@@ -62,7 +62,7 @@ Page({
             charging = true
         }
         //温度
-        let Temperature = parseInt(all[14] + all[15], 16)
+        let temperature = parseInt(all[14] + all[15], 16)
         let arr = []
         all.forEach((value, index, array) => {
             arr[index] = parseInt(value, 16)
@@ -78,16 +78,16 @@ Page({
             //电量
             electricity,
             //温度
-            Temperature
+            temperature
         })
 
         if (this.data.prompt) {
 
             if (wx.getStorageSync('electricitySwitch')) {
-                const electricity = wx.getStorageSync('electricity') || 0
-                if (this.data.electricity < electricity) {
+                const electricityStorage = wx.getStorageSync('electricity') || 0
+                if (electricity < electricityStorage) {
                     wx.showToast({
-                        title: `Battery power is less than ${this.data.electricity}%`,
+                        title: `Battery power is less than ${electricity}%`,
                         icon: 'none',
                         duration: 2000
                     })
@@ -95,10 +95,10 @@ Page({
             }
 
             if (wx.getStorageSync('temperatureSwitch')) {
-                const temperature = wx.getStorageSync('temperature') || 0
-                if (this.data.temperature > temperature) {
+                const temperatureStorage = wx.getStorageSync('temperature') || 0
+                if (temperature > temperatureStorage) {
                     wx.showToast({
-                        title: `Battery temperature is higher than ${this.data.temperature}℃ `,
+                        title: `Battery temperature is higher than ${temperature}℃ `,
                         icon: 'none',
                         duration: 2000
                     })
