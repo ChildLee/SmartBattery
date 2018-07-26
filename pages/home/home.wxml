@@ -29,7 +29,25 @@
             <view class="item">
                 <view class="icon icon-wd"></view>
                 <view>Temperature</view>
-                <view>{{Temperature/100}}℃</view>
+                <view>{{temperature/100}}℃</view>
+            </view>
+        </view>
+    </view>
+</block>
+
+<block wx:if="{{show}}">
+    <view class="prompt" bindtap="showPrompt">
+        <view class="pull"></view>
+        <view class="prompt-content">
+            <view class="content">
+                <view wx:if="{{electricityShow}}">
+                    <view class="icon icon-about"></view>
+                    <view>电池电量低于 {{electricityStorage}}%</view>
+                </view>
+                <view wx:if="{{temperatureShow}}">
+                    <view class="icon icon-about"></view>
+                    <view>电池温度高于 {{temperatureStorage}}℃</view>
+                </view>
             </view>
         </view>
     </view>

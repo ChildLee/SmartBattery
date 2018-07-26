@@ -36,4 +36,6 @@
 // })
 // console.log(voltage)
 
-console.log(Number('0101'.substring(0,1))===0)
+// console.log(Number('0101'.substring(0,1))===0)
+
+// console.log(Number('2550'/100))

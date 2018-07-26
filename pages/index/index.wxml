@@ -24,3 +24,21 @@
         <view>About</view>
     </view>
 </view>
+
+<!--<block wx:if="{{show}}">-->
+    <!--<view class="prompt" bindtap="showPrompt">-->
+        <!--<view class="pull"></view>-->
+        <!--<view class="prompt-content">-->
+            <!--<view class="content">-->
+                <!--<view>-->
+                    <!--<view class="icon icon-about"></view>-->
+                    <!--<view>电池电量低于 86%</view>-->
+                <!--</view>-->
+                <!--<view>-->
+                    <!--<view class="icon icon-about"></view>-->
+                    <!--<view>电池温度高于 20%</view>-->
+                <!--</view>-->
+            <!--</view>-->
+        <!--</view>-->
+    <!--</view>-->
+<!--</block>-->

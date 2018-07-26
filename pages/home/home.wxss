@@ -78,3 +78,29 @@ page {
         font-weight: bold; }
       .fixed .list .item .icon {
         font-size: 100rpx; }
+
+.prompt .pull {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.5); }
+.prompt .prompt-content {
+  border-radius: 10rpx;
+  z-index: 1001;
+  background-color: #ffffff;
+  width: 80%;
+  position: absolute;
+  left: 10%;
+  top: 50%; }
+  .prompt .prompt-content .content {
+    color: #406fcb;
+    padding: 15rpx 30rpx;
+    line-height: 80rpx; }
+    .prompt .prompt-content .content > view {
+      display: flex;
+      align-items: center; }
+      .prompt .prompt-content .content > view > view {
+        margin: 0 5rpx; }

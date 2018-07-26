@@ -7,7 +7,9 @@ Page({
         load: false,
         charging: false,
         //提示
-        prompt: true
+        prompt: true,
+        //显示弹窗
+        show: false
     },
 
     onUnload() {
@@ -82,31 +84,40 @@ Page({
         })
 
         if (this.data.prompt) {
-
+            const electricityStorage = wx.getStorageSync('electricity') || 0
+            const temperatureStorage = wx.getStorageSync('temperature') || 0
+            let electricityShow = false
+            let temperatureShow = false
+            let show = false
             if (wx.getStorageSync('electricitySwitch')) {
-                const electricityStorage = wx.getStorageSync('electricity') || 0
-                if (electricity < electricityStorage) {
-                    wx.showToast({
-                        title: `Battery power is less than ${electricity}%`,
-                        icon: 'none',
-                        duration: 2000
-                    })
+                if (Number(electricity) < Number(electricityStorage)) {
+                    electricityShow = true
                 }
             }
 
             if (wx.getStorageSync('temperatureSwitch')) {
-                const temperatureStorage = wx.getStorageSync('temperature') || 0
-                if (temperature > temperatureStorage) {
-                    wx.showToast({
-                        title: `Battery temperature is higher than ${temperature}℃ `,
-                        icon: 'none',
-                        duration: 2000
-                    })
+                if (Number(temperature / 100) > Number(temperatureStorage)) {
+                    temperatureShow = true
                 }
             }
-
-            this.data.prompt = false
+            if (electricityShow || temperatureShow) {
+                show = true
+            }
+            this.setData({
+                electricityShow,
+                electricityStorage,
+                temperatureShow,
+                temperatureStorage,
+                show: show,
+                prompt: false
+            })
         }
+    },
+
+    showPrompt() {
+        this.setData({
+            show: false
+        })
     },
 
     isConn() {

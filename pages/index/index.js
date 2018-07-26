@@ -1,6 +1,9 @@
 const app = getApp()
 
 Page({
+    data: {
+        show: true
+    },
     onLoad() {
         //1.dda50100ffff77
         //2.dda50200fffe77
@@ -12,7 +15,11 @@ Page({
     isConn() {
         return app.data.deviceId
     },
-
+    // showPrompt() {
+    //     this.setData({
+    //         show: false
+    //     })
+    // },
     //home
     home() {
         if (this.isConn()) {
